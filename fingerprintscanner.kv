@@ -1,0 +1,51 @@
+#:kivy 1.9.1
+<MenuScreen>:
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        Label:
+            text: 'Fingerprint Scanner'
+            font_size: 24
+
+        GridLayout:
+            size: root.size
+            rows: 2
+            cols: 2
+            spacing: 10
+            padding: 10
+
+            Button:
+                text: 'Login'
+                size_hint_y: None
+                on_press: root.manager.current = 'login'
+
+            Button:
+                text: 'Register'
+                size_hint_y: None
+
+            Button:
+                text: 'Check Compatibility'
+                size_hint_y: None
+                on_press: root.manager.current = 'compatibility'
+
+            Button:
+                text: 'Quit'
+                size_hint_y: None
+                on_press: app.stop()
+
+<LoginScreen>:
+    BoxLayout:
+        Button:
+            text: 'My login button'
+        Button:
+            text: 'Back to main menu'
+            on_press: root.manager.current = 'menu'
+
+<CompatibilityScreen>:
+    BoxLayout:
+        Button:
+            text: 'Check if device is compatible'
+        Button:
+            text: 'Back to main menu'
+            on_press: root.manager.current = 'menu'
